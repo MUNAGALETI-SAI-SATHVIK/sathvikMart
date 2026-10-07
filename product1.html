@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | Sathvik Supermart</title>
+    
+    <!-- Google Fonts: Poppins for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#ff6b00',
+                            yellow: '#ffc107',
+                            dark: '#0f0f13',
+                            glass: 'rgba(255, 255, 255, 0.05)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</head>
+<body class="antialiased">
+
+    <!-- ================= HEADER SECTION START ================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html#" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(255,107,0,0.3)] overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,107,0,0.6)] group-hover:border-brand-orange/50">
+                        <img src="./images/logo.png" alt="Logo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <span class="text-2xl font-bold tracking-wider text-white">SATHVIK<span class="text-brand-orange">MART</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-1">
+                    <a href="index.html#home" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-orange hover:bg-white/5 rounded-full transition-all">Home</a>
+                    <a href="index.html#about" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-orange hover:bg-white/5 rounded-full transition-all">About</a>
+                    <a href="index.html#offers" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-orange hover:bg-white/5 rounded-full transition-all">Offers</a>
+                    <a href="index.html#products" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-orange hover:bg-white/5 rounded-full transition-all">Products</a>
+                    <a href="index.html#reviews" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-orange hover:bg-white/5 rounded-full transition-all">Reviews</a>
+                    <a href="index.html#contact" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-orange hover:bg-white/5 rounded-full transition-all">Contact</a>
+                </nav>
+
+                <!-- Icons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="search-btn-desktop" class="text-gray-300 hover:text-brand-orange transition-colors text-xl"><i class="fas fa-search"></i></button>
+                    <button id="user-btn-desktop" class="text-gray-300 hover:text-brand-orange transition-colors text-xl"><i class="fas fa-user"></i></button>
+                    <button id="cart-btn-desktop" class="text-gray-300 hover:text-brand-orange transition-colors text-xl relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-brand-orange text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">5</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="search-btn-mobile" class="text-gray-300 hover:text-brand-orange transition-colors text-xl">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button id="cart-btn-mobile" class="text-gray-300 hover:text-brand-orange transition-colors text-xl relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-brand-orange text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">5</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-brand-orange text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden glass border-t border-white/10">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="index.html#home" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg">Home</a>
+                <a href="index.html#about" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg">About</a>
+                <a href="index.html#offers" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg">Offers</a>
+                <a href="index.html#products" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg">Products</a>
+                <a href="index.html#reviews" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg">Reviews</a>
+                <a href="index.html#contact" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
+            </div>
+        </div>
+        
+        <!-- Dropdown Search Form -->
+        <div id="search-container" class="absolute top-full left-0 w-full glass border-b border-white/10 transform -translate-y-[200%] opacity-0 transition-all duration-300 -z-10 shadow-2xl">
+            <div class="max-w-3xl mx-auto p-4 flex flex-col gap-2">
+                <div class="flex items-center bg-black/50 rounded-full border border-white/20 px-6 py-3 focus-within:border-brand-orange transition-colors">
+                    <input type="search" id="search-box" placeholder="Search for products (e.g., Almonds, Kiwi)..." class="flex-1 bg-transparent text-white focus:outline-none placeholder-gray-400 text-lg">
+                    <label for="search-box" class="text-brand-orange cursor-pointer text-xl ml-4"><i class="fas fa-search"></i></label>
+                </div>
+                <!-- Search Results -->
+                <div id="search-results" class="bg-[#0f0f13]/90 rounded-2xl border border-white/10 max-h-[350px] overflow-y-auto hidden flex-col p-2 shadow-2xl backdrop-blur-xl">
+                    <!-- JS Injected Results Go Here -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ================= HEADER SECTION END ================= -->
+
+
+    <section id="products" class="py-32 relative min-h-screen overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-brand-orange/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wide">All <span class="text-brand-orange">Products</span></h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_#ff6b00]"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=500&q=60" alt="Premium Almonds" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Premium Almonds</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹290</span>
+                        <span class="text-gray-500 line-through text-sm">₹344</span>
+                    </div>
+                    <button onclick="addToCart(1)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/kiwi.webp" alt="Fresh Kiwi" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fresh Kiwi</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹420</span>
+                        <span class="text-gray-500 line-through text-sm">₹500</span>
+                    </div>
+                    <button onclick="addToCart(2)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/rajma.jpeg" alt="Rajma (Kidney Beans)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Rajma (Kidney Beans)</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹100</span>
+                        <span class="text-gray-500 line-through text-sm">₹132</span>
+                    </div>
+                    <button onclick="addToCart(3)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/makanna.png" alt="Lotus Seeds (Makhana)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Lotus Seeds (Makhana)</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹200</span>
+                        <span class="text-gray-500 line-through text-sm">₹235</span>
+                    </div>
+                    <button onclick="addToCart(4)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/dates (1).png" alt="Dates 1kg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Dates 1kg</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹600</span>
+                        <span class="text-gray-500 line-through text-sm">₹788</span>
+                    </div>
+                    <button onclick="addToCart(10)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/panner.png" alt="Paneer 550g" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Paneer 550g</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹250</span>
+                        <span class="text-gray-500 line-through text-sm">₹299</span>
+                    </div>
+                    <button onclick="addToCart(11)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/pista.png" alt="Pistachio 500g" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Pistachio 500g</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹699</span>
+                        <span class="text-gray-500 line-through text-sm">₹789</span>
+                    </div>
+                    <button onclick="addToCart(12)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+                <div class="glass-card rounded-2xl p-4 text-center relative group">
+                    <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10 transform translate-x-4 group-hover:translate-x-0 duration-300">
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-heart text-sm"></i></button>
+                        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center text-white backdrop-blur-md"><i class="fas fa-eye text-sm"></i></button>
+                    </div>
+                    <div class="h-48 mb-4 relative rounded-xl overflow-hidden">
+                        <img src="./images/aprocot.png" alt="Apricot" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Apricot</h3>
+                    <div class="flex justify-center gap-1 text-brand-orange mb-3 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <span class="text-2xl font-bold text-white">₹399</span>
+                        <span class="text-gray-500 line-through text-sm">₹499</span>
+                    </div>
+                    <button onclick="addToCart(13)" class="w-full py-2 rounded-xl bg-white/10 hover:bg-brand-orange border border-white/20 transition-all text-white font-medium flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    <!-- ================= FOOTER SECTION START ================= -->
+    <footer class="bg-black/50 border-t border-white/5 pt-16 pb-8 text-center relative overflow-hidden">
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[200px] bg-brand-orange/10 rounded-full blur-[100px] -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Social Links -->
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="index.html#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="index.html#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="index.html#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="index.html#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="flex flex-wrap justify-center gap-6 mb-12 text-sm font-medium text-gray-400">
+                <a href="index.html#home" class="hover:text-brand-orange transition-colors">Home</a>
+                <a href="index.html#about" class="hover:text-brand-orange transition-colors">About</a>
+                <a href="index.html#offers" class="hover:text-brand-orange transition-colors">Offers</a>
+                <a href="index.html#products" class="hover:text-brand-orange transition-colors">Products</a>
+                <a href="index.html#reviews" class="hover:text-brand-orange transition-colors">Reviews</a>
+                <a href="index.html#contact" class="hover:text-brand-orange transition-colors">Contact</a>
+            </div>
+
+            <!-- Credit -->
+            <div class="text-gray-500 text-sm">
+                <p>Created by <span class="text-brand-orange font-semibold">M. SAI SATHVIK</span> | All rights reserved &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ================= FOOTER SECTION END ================= -->
+
+    <!-- Cart Sidebar Overlay -->
+    <div id="cart-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+    
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[420px] glass-card z-[70] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
+        <!-- Header -->
+        <div class="p-6 border-b border-white/10 flex justify-between items-center bg-black/40">
+            <h2 class="text-2xl font-bold text-white flex items-center gap-3"><i class="fas fa-shopping-cart text-brand-orange"></i> Your Cart (<span id="cart-count-display">0</span>)</h2>
+            <button id="close-cart-btn" class="text-gray-400 hover:text-brand-orange transition-colors"><i class="fas fa-times text-2xl"></i></button>
+        </div>
+        
+        <!-- Cart Items Container -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+            <!-- Dynamic Cart Items Injected Here -->
+        </div>
+        
+        <!-- Footer / Checkout -->
+        <div class="p-6 border-t border-white/10 bg-black/40">
+            <div class="flex justify-between items-center mb-4 text-white">
+                <span class="text-lg text-gray-300">Total Amount</span>
+                <span id="cart-total-display" class="text-2xl font-bold text-brand-orange">₹0</span>
+            </div>
+            <button id="checkout-btn" class="block w-full btn-glow text-center py-4 rounded-xl text-white font-bold uppercase tracking-widest text-lg shadow-lg">Checkout Now</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- AI Chat Assistant Widget -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="ai-chat-window" class="hidden w-[calc(100vw-3rem)] sm:w-[400px] h-[500px] max-h-[80vh] glass-card rounded-2xl mb-4 flex flex-col overflow-hidden transition-all transform origin-bottom-right scale-95 opacity-0">
+            <!-- Header -->
+            <div class="bg-black/40 p-4 border-b border-white/10 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-500 to-yellow-400 flex items-center justify-center shadow-[0_0_10px_rgba(255,107,0,0.3)]">
+                        <i class="fa-solid fa-robot text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Sathvik AI Chef & Guide</h3>
+                        <p class="text-green-400 text-xs flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span> Online</p>
+                    </div>
+                </div>
+                <button id="close-chat-btn" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto flex flex-col gap-4 scroll-smooth">
+                <!-- Welcome Message -->
+                <div class="flex flex-col items-start max-w-[85%] self-start">
+                    <div class="chat-bubble-ai p-3 text-sm shadow-md">
+                        Hi there! 👋 I'm Sathvik, your AI assistant. Need a recipe idea based on ingredients you have? Or help finding something in the store? Just ask!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-3 bg-black/40 border-t border-white/10 flex gap-2">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 bg-white/5 border border-white/10 rounded-xl py-2 px-4 text-white text-sm focus:outline-none focus:border-brand-orange transition-colors" autocomplete="off">
+                <button id="send-chat-btn" class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center hover:bg-orange-600 transition-colors shadow-lg">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <button id="ai-chat-toggle" class="w-14 h-14 rounded-full btn-glow flex items-center justify-center text-white text-2xl shadow-2xl hover:scale-110 transition-transform">
+            <i class="fas fa-sparkles"></i>
+        </button>
+    </div>
+
+    <!-- Additional Styles for the new Fruit Slider and Ticker -->
+    <style>
+        
+    </style>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
